@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ecredit\ProcessManager\DependencyInjection;
+namespace Ecredit\ProcessManagerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -26,6 +26,14 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('name')->end()
                         ->scalarNode('instance_name')->end()
+                    ->end()
+                ->end()
+                ->arrayNode('commands')
+                    ->arrayPrototype()
+                        ->children()
+                            ->scalarNode('command')->end()
+                            ->scalarNode('threads')->end()
+                        ->end()
                     ->end()
                 ->end()
             ->end();

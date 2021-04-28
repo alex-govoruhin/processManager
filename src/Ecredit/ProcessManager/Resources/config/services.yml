@@ -5,16 +5,27 @@ services:
     autoconfigure: true
     public: false
 
-  Ecredit\ProcessManager\Service\ProcessManager:
+  Ecredit\ProcessManagerBundle\Service\ProcessManager:
     arguments:
-      - '@Ecredit\ProcessManager\Service\Config'
+      - '@Ecredit\ProcessManagerBundle\Service\Config'
+      - '@doctrine.orm.default_entity_manager'
 
-  Ecredit\ProcessManager\Command\ProcessManagerCommand:
+  Ecredit\ProcessManagerBundle\Command\ProcessManagerCommand:
     arguments:
-      - '@Ecredit\ProcessManager\Service\ProcessManager'
+      - '@Ecredit\ProcessManagerBundle\Service\ProcessManager'
+    tags: ['console.command']
 
-  Ecredit\LoggingBundle\Service\Config:
+  Ecredit\ProcessManagerBundle\Command\ProcessManagerHealthCommand:
+    arguments:
+      - '@Ecredit\ProcessManagerBundle\Service\ProcessManager'
+    tags: ['console.command']
+
+  Ecredit\ProcessManagerBundle\Service\Config:
     arguments:
       - '%ecredit_process_manager.service.name%'
       - '%ecredit_process_manager.service.instance_name%'
       - '%ecredit_process_manager.commands%'
+
+  Ecredit\ProcessManagerBundle\Controller\SupervisorController:
+    class: Ecredit\ProcessManagerBundle\Controller\SupervisorController
+    public: true

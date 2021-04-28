@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Ecredit\ProcessManager\Service;
+namespace Ecredit\ProcessManagerBundle\Service;
 
 
 class Config
 {
     private $name = '';
     private $instanceName = '';
-    private $commands = [];
+    private $commands;
 
     public function __construct(string $name, string $instanceName, array $commands)
     {

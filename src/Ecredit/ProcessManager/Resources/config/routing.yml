@@ -1,0 +1,4 @@
+ecredit_supervisor:
+  path: /health/supervisor
+  controller: Ecredit\ProcessManagerBundle\Controller\SupervisorController::health
+  methods: [GET]

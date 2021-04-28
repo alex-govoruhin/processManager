@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ecredit\ProcessManager;
+namespace Ecredit\ProcessManagerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
