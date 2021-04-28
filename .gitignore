@@ -1,0 +1,11 @@
+### IDE
+.idea
+
+### composer
+composer.phar
+composer.lock
+
+###
+vendor
+phpunit.xml
+.php_cs.cache

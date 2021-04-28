@@ -1,0 +1,20 @@
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ecredit\ProcessManager\Service\ProcessManager:
+    arguments:
+      - '@Ecredit\ProcessManager\Service\Config'
+
+  Ecredit\ProcessManager\Command\ProcessManagerCommand:
+    arguments:
+      - '@Ecredit\ProcessManager\Service\ProcessManager'
+
+  Ecredit\LoggingBundle\Service\Config:
+    arguments:
+      - '%ecredit_process_manager.service.name%'
+      - '%ecredit_process_manager.service.instance_name%'
+      - '%ecredit_process_manager.commands%'
